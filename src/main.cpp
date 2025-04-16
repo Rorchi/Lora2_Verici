@@ -102,7 +102,7 @@ if (bmp.begin(BMP085_ULTRAHIGHRES, &I2Ciki)) {
 
   //  ----------------------- FIXED SENDER -----------------------
   configuration.ADDH = 0;
-  configuration.ADDL = 3;
+  configuration.ADDL = 1;
 
   configuration.CHAN = CHANNEL;
 
@@ -191,7 +191,7 @@ void loop()
   ResponseStatus rs = e220ttl.sendFixedMessage(DESTINATION_ADDH, DESTINATION_ADDL, CHANNEL, &data, sizeof(Data));
   // Check If there is some problem of succesfully send
   Serial.println("Veri gönderme durumu: " + rs.getResponseDescription());
-  delay(1000);
+  delay(500);
 }
 
 void printParameters(struct Configuration configuration)
